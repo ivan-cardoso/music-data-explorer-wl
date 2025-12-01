@@ -32,7 +32,7 @@ export function SearchBar() {
         setSuggestions(data.artists || [])
       }
     } catch (error) {
-      console.error("[v0] Search error:", error)
+      console.error("Search error:", error)
     } finally {
       setIsLoading(false)
     }

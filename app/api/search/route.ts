@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     const artists = await searchArtists(query, 8)
     return NextResponse.json({ artists })
   } catch (error) {
-    console.error("[v0] Search API error:", error)
+    console.error("Search API error:", error)
     return NextResponse.json({ error: "Failed to search artists" }, { status: 500 })
   }
 }

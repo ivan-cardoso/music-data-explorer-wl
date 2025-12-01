@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { Artist } from "@/lib/types/lastfm"
 import { formatNumber } from "@/lib/utils/formatter"
 
@@ -20,7 +21,12 @@ export function TrendingArtistsChart({ artists }: TrendingArtistsChartProps) {
         return (
           <div key={index} className="group">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-foreground font-medium">{artist.name}</span>
+              <Link
+                href={`/artist/${encodeURIComponent(artist.name)}`}
+                className="text-foreground font-medium hover:text-primary transition-colors"
+              >
+                {artist.name}
+              </Link>
               <span className="text-sm text-muted-foreground">{formatNumber(artist.playcount)}</span>
             </div>
             <div className="h-2.5 bg-muted rounded-full overflow-hidden">

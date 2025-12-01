@@ -7,10 +7,8 @@ import "./globals.css"
 const geist = Geist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  // <CHANGE> Updated metadata for Musify app
   title: "Musify - Music Data Explorer",
   description: "Uncover insights about artists, albums and songs with data-driven visualizations powered by Last.fm",
-  generator: "v0.app",
   icons: {
     icon: [
       {

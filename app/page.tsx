@@ -17,7 +17,7 @@ export default async function Home() {
     topArtists = artistsData.map(transformArtist)
     topTracks = tracksData.map(transformTrack)
   } catch (err) {
-    console.error("[v0] Failed to fetch data:", err)
+    console.error("Failed to fetch data:", err)
     error = err instanceof Error ? err.message : "Failed to load data"
   }
 
