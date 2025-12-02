@@ -51,7 +51,7 @@ export default async function ArtistPage({
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        {/* {console.log("TOP TRACKS DATA:", topTracksData)} */}
+        {/* {console.log("SIMILAR ARTISTS DATA:", similarData)} */}
         <main className="container mx-auto px-4 py-8">
           <ArtistHeader artist={artist} />
 
@@ -100,76 +100,10 @@ export default async function ArtistPage({
                 Popular Tracks This Week
               </h2>
               <TopTracksList tracks={topTracks} />
-              {/* <AlbumTrackList tracks={topTracks} /> */}
             </div>
           )}
 
-          {/* {topTracks && (
-            <section className="mt-12 w-full">
-              <h2 className="text-2xl font-bold mb-6 text-foreground">
-                Popular Tracks
-              </h2>
-
-              <ul className="w-full flex flex-col divide-y divide-muted/40">
-                {topTracks.map((track: Track) => {
-                  const percentage = (track.listeners / maxPlaycount) * 100;
-
-                  return (
-                    <li
-                      key={track.name}
-                      className="
-                        grid 
-                        grid-cols-[32px_48px_1fr_auto] 
-                        sm:grid-cols-[40px_56px_1fr_auto] 
-                        items-center 
-                        gap-4 
-                        py-3 
-                        hover:bg-muted/20 
-                        transition-colors 
-                        rounded-lg
-                        px-2
-                      "
-                    >
-                      
-                      <span className="text-sm font-medium text-foreground/70 w-6 text-center">
-                        {track.rank}
-                      </span>
-
-                      
-                      <div className="w-12 h-12 rounded-md overflow-hidden bg-muted shrink-0">
-                        {track.image?.[1]?.["#text"] ? (
-                          <img
-                            src={track.image[1]["#text"]}
-                            alt={track.name}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : null}
-                      </div>
-
-                     
-                      <div className="flex flex-col w-full">
-                        <span className="text-foreground font-medium truncate">
-                          {track.name}
-                        </span>
-
-                        <div className="relative mt-1 h-2.5 bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="absolute inset-y-0 left-0 bg-primary rounded-full transition-all duration-500"
-                            style={{ width: `${percentage}%` }}
-                          />
-                        </div>
-                      </div>
-
-                     
-                      <span className="text-sm font-medium text-foreground/80 whitespace-nowrap pl-2">
-                        {track.listeners.toLocaleString()}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          )} */}
+          
 
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-foreground">
@@ -184,7 +118,7 @@ export default async function ArtistPage({
                 Biography
               </h2>
               <Card className="bg-card border-border">
-                <CardContent className="pt-6">
+                <CardContent className="py-4">
                   <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                     {stripHtmlTags(artist.bio)}
                   </p>

@@ -23,7 +23,7 @@ export function SimilarArtists({ artists }: SimilarArtistsProps) {
             />
           </div>
           <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">{artist.name}</h3>
-          <p className="text-xs text-muted-foreground">{formatNumber(artist.listeners)} listeners</p>
+          {/* <p className="text-xs text-muted-foreground">{formatNumber(artist.listeners)} listeners</p> */}
         </Link>
       ))}
     </div>
