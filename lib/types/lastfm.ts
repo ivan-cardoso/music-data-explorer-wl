@@ -177,6 +177,7 @@ export interface Track {
   playcount: number
   listeners?: number
   url?: string
+  artist?: string
   rank?: number
 }
 

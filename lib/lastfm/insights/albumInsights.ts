@@ -16,7 +16,7 @@ export function calculateAlbumInsights(tracks: Track[]): AlbumInsights | null {
   }
 
   const totalDuration = tracksWithDuration.reduce((sum, t) => sum + t.duration, 0)
-  const averageDuration = totalDuration / tracksWithDuration.length
+  const averageDuration = Math.floor(totalDuration / tracksWithDuration.length)
 
   const sortedByDuration = [...tracksWithDuration].sort((a, b) => b.duration - a.duration)
 

@@ -3,14 +3,15 @@ import { formatNumber, stripHtmlTags } from "@/lib/utils/formatter"
 import { Badge } from "@/components/ui/badge"
 
 interface ArtistHeaderProps {
-  artist: Artist
+  artist: Artist;
+  image?: string;
 }
 
-export function ArtistHeader({ artist }: ArtistHeaderProps) {
+export function ArtistHeader({ artist, image }: ArtistHeaderProps) {
   return (
     <div className="flex flex-col md:flex-row gap-8 items-start">
       <img
-        src={artist.image || "/placeholder.svg?height=300&width=300&query=music+artist"}
+        src={image || "/placeholder.svg?height=300&width=300&query=music+artist"}
         alt={artist.name}
         className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
       />

@@ -117,6 +117,22 @@ export default async function AlbumPage({
               <Card className="bg-card border-border">
                 <CardHeader>
                   <CardTitle className="text-foreground">
+                    Shortest Track
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-lg font-semibold text-foreground truncate">
+                    {insights.shortestTrack.name}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {formatDuration(insights.shortestTrack.duration)}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-foreground">
                     Longest Track
                   </CardTitle>
                 </CardHeader>
@@ -133,15 +149,12 @@ export default async function AlbumPage({
               <Card className="bg-card border-border">
                 <CardHeader>
                   <CardTitle className="text-foreground">
-                    Shortest Track
+                    Average Track Duration
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-lg font-semibold text-foreground truncate">
-                    {insights.shortestTrack.name}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {formatDuration(insights.shortestTrack.duration)}
+                  <div className="text-3xl font-bold text-primary">
+                    {formatDuration(insights.averageDuration)}
                   </div>
                 </CardContent>
               </Card>

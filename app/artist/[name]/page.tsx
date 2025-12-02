@@ -53,7 +53,7 @@ export default async function ArtistPage({
         <Navbar />
         {/* {console.log("SIMILAR ARTISTS DATA:", similarData)} */}
         <main className="container mx-auto px-4 py-8">
-          <ArtistHeader artist={artist} />
+          <ArtistHeader artist={artist} image={topAlbums[0].image} />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
             <Card className="bg-card border-border">
@@ -99,11 +99,13 @@ export default async function ArtistPage({
               <h2 className="text-2xl font-bold mb-6 text-foreground col-span-3">
                 Popular Tracks This Week
               </h2>
-              <TopTracksList tracks={topTracks}  />
+              <section className="w-full grid grid-cols-1 lg:grid-cols-3">
+                <div className="col-span-3 lg:col-span-2">
+                  <TopTracksList tracks={topTracks} />
+                </div>
+              </section>
             </div>
           )}
-
-          
 
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-foreground">
