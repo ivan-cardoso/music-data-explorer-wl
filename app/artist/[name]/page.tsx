@@ -99,7 +99,7 @@ export default async function ArtistPage({
               <h2 className="text-2xl font-bold mb-6 text-foreground col-span-3">
                 Popular Tracks This Week
               </h2>
-              <TopTracksList tracks={topTracks} />
+              <TopTracksList tracks={topTracks}  />
             </div>
           )}
 

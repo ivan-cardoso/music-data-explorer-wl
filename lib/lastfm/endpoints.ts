@@ -93,7 +93,7 @@ export async function getAlbumInfo(artist: string, album: string) {
   });
 
   console.log("Album data received:", data.album?.name);
-  return AlbumInfoSchema.parse(data.album);
+  return data.album;
 }
 
 // Track endpoints

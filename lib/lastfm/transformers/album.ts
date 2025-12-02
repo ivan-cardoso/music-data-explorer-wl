@@ -30,9 +30,11 @@ export function transformAlbum(data: z.infer<typeof AlbumInfoSchema>): Album {
     album.tags = data.tags.tag.map((t) => t.name)
   }
 
-  if (data.tracks?.track) {
-    album.tracks = data.tracks.track.map(transformTrack)
+  if (data.tracks?.track && data.tracks.track[0]) {
+    // album.tracks = data.tracks.track.map(transformTrack)
+    album.tracks = data.tracks?.track
+  } else {
+    album.tracks = [data.tracks?.track]! 
   }
-
   return album
 }

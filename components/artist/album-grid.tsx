@@ -12,12 +12,12 @@ export function AlbumGrid({ albums }: AlbumGridProps) {
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
       {albums.map((album, index) => (
         <Link key={index} href={`/album/${encodeURIComponent(album.artist)}/${encodeURIComponent(album.name)}`}>
-          <Card className="group overflow-hidden border-border bg-card hover:bg-muted/50 transition-colors cursor-pointer">
+          <Card className="p-0 group overflow-hidden border-border bg-card hover:bg-muted/50 transition-colors cursor-pointer">
             <div className="aspect-square overflow-hidden">
               <img
                 src={album.image || "/placeholder.svg?height=300&width=300&query=album+cover"}
                 alt={album.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-[102%] transition-transform duration-300"
               />
             </div>
             <CardContent className="p-4">
