@@ -6,7 +6,7 @@ import { transformTrack } from "./track"
 export function transformAlbum(data: z.infer<typeof AlbumInfoSchema>): Album {
   const getImage = (images?: Array<{ "#text": string; size: string }>) => {
     if (!images || images.length === 0) return undefined
-    const largeImage = images.find((img) => img.size === "extralarge" || img.size === "large")
+    const largeImage = images.find((img) => img.size === "extralarge")
     return largeImage?.["#text"] || images[images.length - 1]?.["#text"]
   }
 

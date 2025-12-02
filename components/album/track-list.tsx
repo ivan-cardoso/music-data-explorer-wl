@@ -8,7 +8,7 @@ export default function TopTracksList({ tracks }: AlbumTrackListProps) {
   const maxPlaycount = Math.max(...tracks.map((a) => a.listeners));
   return (
     <section className="w-full grid grid-cols-1 lg:grid-cols-3">
-      <ul className="w-full flex flex-col divide-y divide-muted/40 col-span-3">
+      <ul className="w-full flex flex-col divide-y divide-muted/40 col-span-2">
         {tracks.map((track: Track) => {
           const percentage = (track.listeners / maxPlaycount) * 100;
 
@@ -17,7 +17,6 @@ export default function TopTracksList({ tracks }: AlbumTrackListProps) {
               key={track.name}
               className="
                         grid 
-                        
                         sm:grid-cols-2 
                         items-center 
                         gap-4 

@@ -22,6 +22,7 @@ import { SimilarArtists } from "@/components/artist/similar-artists";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Track } from "@/lib/types/lastfm";
 import TopTracksList from "@/components/album/track-list";
+import { AlbumTrackList } from "@/components/album/album-track-list";
 
 export default async function ArtistPage({
   params,
@@ -36,7 +37,7 @@ export default async function ArtistPage({
       await Promise.all([
         getArtistInfo(artistName),
         getArtistTopTracks(artistName, 10),
-        getArtistTopAlbums(artistName, 8),
+        getArtistTopAlbums(artistName, 10),
         getSimilarArtists(artistName, 6),
       ]);
 
@@ -99,6 +100,7 @@ export default async function ArtistPage({
                 Popular Tracks This Week
               </h2>
               <TopTracksList tracks={topTracks} />
+              {/* <AlbumTrackList tracks={topTracks} /> */}
             </div>
           )}
 

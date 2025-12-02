@@ -9,7 +9,7 @@ interface AlbumGridProps {
 
 export function AlbumGrid({ albums }: AlbumGridProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
       {albums.map((album, index) => (
         <Link key={index} href={`/album/${encodeURIComponent(album.artist)}/${encodeURIComponent(album.name)}`}>
           <Card className="group overflow-hidden border-border bg-card hover:bg-muted/50 transition-colors cursor-pointer">
