@@ -51,6 +51,7 @@ export default async function Home() {
             <div>
               <h2 className="text-2xl font-bold mb-6 text-foreground">Trending Tracks</h2>
               <TrendingTracksChart tracks={topTracks} />
+               {/* <TopTracksList tracks={topTracks} /> */}
             </div>
           </div>
         )}
