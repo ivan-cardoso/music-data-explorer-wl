@@ -73,6 +73,7 @@ export default async function ArtistPage({
                   plays
                 </div>
               </CardContent>
+              
             </Card>
           </div>
 

@@ -20,7 +20,7 @@ export default async function Home() {
 
     topArtists = artistsData.map(transformArtist);
     topTracks = tracksData.map(transformTrack);
-    {tracksData && console.log(tracksData)}
+    
   } catch (err) {
     console.error("Failed to fetch data:", err);
     error = err instanceof Error ? err.message : "Failed to load data";
@@ -48,26 +48,30 @@ export default async function Home() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
-            <div>
-              <h2 className="text-2xl font-bold mb-6 text-foreground">
-                Trending Artists
-              </h2>
-              <TrendingArtistsChart artists={topArtists} />
-            </div>
+          <section className="mt-16">
+            <h2 className="text-center text-5xl font-bold">
+              Most loved this week
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+              <div>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  Trending Artists
+                </h2>
+                <TrendingArtistsChart artists={topArtists} />
+              </div>
 
-            <div>
-              <h2 className="text-2xl font-bold mb-6 text-foreground">
-                Trending Tracks
-              </h2>
-              {/* <TrendingTracksChart tracks={topTracks} /> */}
-              <section className="w-full grid grid-cols-1 lg:grid-cols-3">
-                <div className="col-span-3">
-                  <TopTracksList tracks={topTracks} showArtistName />
-                </div>
-              </section>
+              <div>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  Trending Tracks
+                </h2>
+                <section className="w-full grid grid-cols-1 lg:grid-cols-3">
+                  <div className="col-span-3">
+                    <TopTracksList tracks={topTracks} showArtistName />
+                  </div>
+                </section>
+              </div>
             </div>
-          </div>
+          </section>
         )}
       </main>
     </div>

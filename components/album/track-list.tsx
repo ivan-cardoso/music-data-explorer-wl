@@ -22,20 +22,24 @@ export default function TopTracksList({
           <li
             key={track.name}
             className="
-                        grid 
-                        sm:grid-cols-2 
-                        items-center 
-                        gap-4 
-                        py-3 
-                        hover:bg-muted/20 
-                        transition-colors 
-                        rounded-lg
-                        px-2
-                      "
+              grid 
+              sm:grid-cols-2 
+              items-center 
+              gap-4 
+              py-3 
+              hover:bg-muted/20 
+              transition-colors 
+              rounded-lg
+              px-2
+              min-h-16
+              lg:min-h-20
+            "
           >
             <div className="flex gap-3 items-center">
               <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-lg font-bold text-foreground text-center">{i + 1}</span>
+                <span className="text-lg font-bold text-foreground text-center">
+                  {i + 1}
+                </span>
               </div>
               {image && (
                 <Image

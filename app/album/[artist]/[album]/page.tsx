@@ -145,36 +145,32 @@ export default async function AlbumPage({
                   </div>
                 </CardContent>
               </Card>
-
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="text-foreground">
-                    Average Track Duration
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold text-primary">
-                    {formatDuration(insights.averageDuration)}
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           )}
 
-          {album.tracks && album.tracks.length > 0 && (
+          {insights && album.tracks && album.tracks.length > 0 && (
             <>
-              {/* <div className="mt-12">
-                <h2 className="text-2xl font-bold mb-6 text-foreground">
-                  Tracklist
-                </h2>
-                <AlbumTrackList tracks={album.tracks} />
-              </div> */}
-
               <div className="mt-12">
                 <h2 className="text-2xl font-bold mb-6 text-foreground">
                   Tracklist
                 </h2>
-                <TopTracksList tracks={album.tracks} image={album.image} />
+                <section className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+                  <div className="col-span-3 lg:col-span-2">
+                    <TopTracksList tracks={album.tracks} image={album.image} />
+                  </div>
+                  <Card className="bg-card border-border col-span-3 lg:col-span-1 lg:h-fit lg:sticky lg:top-24">
+                    <CardHeader>
+                      <CardTitle className="text-foreground">
+                        Average Track Duration
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-3xl font-bold text-primary">
+                        {formatDuration(insights.averageDuration)}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </section>
               </div>
 
               <div className="mt-12">
