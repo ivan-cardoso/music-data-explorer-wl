@@ -30,7 +30,7 @@ export default async function Home() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="container mx-auto px-4 py-12">
-        <div className="flex flex-col items-center text-center mb-12">
+        <div className="flex flex-col items-center text-center py-12 mb-12">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-primary/60 bg-clip-text text-transparent leading-tight text-balance">
             Uncover insights about artists, albums and songs.
           </h1>
