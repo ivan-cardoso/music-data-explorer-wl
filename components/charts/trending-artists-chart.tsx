@@ -11,11 +11,13 @@ export function TrendingArtistsChart({ artists }: TrendingArtistsChartProps) {
     return <div className="text-muted-foreground">No data available</div>;
   }
 
+  const sortedArtists = [...artists].sort((a, b) => b.playcount - a.playcount);
+
   const maxPlaycount = Math.max(...artists.map((a) => a.playcount));
 
   return (
     <ul className="w-full flex flex-col divide-y divide-muted/40">
-      {artists.map((artist, i) => {
+      {sortedArtists.map((artist, i) => {
         const percentage = (artist.playcount / maxPlaycount) * 100;
 
         return (

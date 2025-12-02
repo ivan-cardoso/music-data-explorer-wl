@@ -8,23 +8,15 @@ import { TrendingTracksChart } from "@/components/charts/trending-tracks-chart";
 import TopTracksList from "@/components/album/track-list";
 
 export default async function Home() {
-  let topArtists = [];
-  let topTracks = [];
+  
+  const [artistsData, tracksData] = await Promise.all([
+    getTopArtists(10),
+    getTopTracks(10),
+  ]);
+  
+  const topArtists = artistsData.map(transformArtist);
+  const topTracks = tracksData.map(transformTrack);
   let error = null;
-
-  try {
-    const [artistsData, tracksData] = await Promise.all([
-      getTopArtists(10),
-      getTopTracks(10),
-    ]);
-
-    topArtists = artistsData.map(transformArtist);
-    topTracks = tracksData.map(transformTrack);
-    
-  } catch (err) {
-    console.error("Failed to fetch data:", err);
-    error = err instanceof Error ? err.message : "Failed to load data";
-  }
 
   return (
     <div className="min-h-screen bg-background">
