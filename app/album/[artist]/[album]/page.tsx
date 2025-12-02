@@ -10,7 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlbumTrackList } from "@/components/album/album-track-list";
-import { AlbumDurationChart } from "@/components/charts/album-duration-chart";
+import { TrackDurationLineChart } from "@/components/charts/album-duration-chart";
 import TopTracksList from "@/components/album/track-list";
 import Link from "next/link";
 
@@ -168,7 +168,7 @@ export default async function AlbumPage({
                 <h2 className="text-2xl font-bold mb-6 text-foreground">
                   Track Duration Distribution
                 </h2>
-                <AlbumDurationChart tracks={album.tracks} />
+                <TrackDurationLineChart tracks={album.tracks} />
               </div>
             </>
           )}
