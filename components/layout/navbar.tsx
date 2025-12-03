@@ -18,14 +18,14 @@ export function Navbar() {
           <span className="text-xl font-semibold text-foreground">Music Data Explorer</span>
         </Link>
 
-        <div className="hidden flex-1 max-w-md mx-8 md:block">
+        {/* <div className="hidden flex-1 max-w-md mx-8 md:block">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input type="search" placeholder="Search" className="w-full pl-10 bg-input border-border" />
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <button className="text-muted-foreground hover:text-foreground transition-colors">
             <Bell className="h-5 w-5" />
           </button>
@@ -36,7 +36,7 @@ export function Navbar() {
             <AvatarImage src="/diverse-user-avatars.png" />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
-        </div>
+        </div> */}
       </div>
     </nav>
   )

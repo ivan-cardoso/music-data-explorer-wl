@@ -50,10 +50,10 @@ export default function TopTracksList({
                   className="w-12 h-12"
                 />
               )}
-              <div className="flex flex-col">
-                <span className="text-foreground font-medium truncate underline">
+              <div className="flex flex-col max-w-48 lg:max-w-64">
+                <p className="text-foreground font-medium truncate underline">
                   {track.name}
-                </span>
+                </p>
                 {showArtistName && (
                   <Link
                     href={`/artist/${encodeURIComponent(track.artist!)}`}

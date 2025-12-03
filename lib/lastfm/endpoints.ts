@@ -3,7 +3,7 @@ import {
   LastfmArtistSchema,
   ArtistInfoSchema,
   LastfmTrackSchema,
-  AlbumInfoSchema,
+  LastfmAlbumSchema,
 } from "@/lib/types/lastfm";
 import { z } from "zod";
 
@@ -28,7 +28,6 @@ export async function getTopTracks(limit = 10) {
   return z.array(LastfmTrackSchema).parse(tracks);
 }
 
-// Artist endpoints
 export async function searchArtists(artist: string, limit = 10) {
   const data = await lastfmFetch<any>({
     method: "artist.search",
@@ -37,7 +36,19 @@ export async function searchArtists(artist: string, limit = 10) {
   });
 
   const artists = data.results?.artistmatches?.artist || [];
-  return z.array(LastfmArtistSchema).parse(artists);
+  const parsed = z.array(LastfmArtistSchema).parse(artists);
+  const unique = [];
+  const seen = new Set<string>();
+
+  for (const artist of parsed) {
+    const key = artist.mbid?.trim() || artist.name.trim().toLowerCase();
+
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(artist);
+    }
+  }
+  return unique;
 }
 
 export async function getArtistInfo(artist: string) {
@@ -83,6 +94,18 @@ export async function getSimilarArtists(artist: string, limit = 6) {
 }
 
 // Album endpoints
+export async function searchAlbums(album: string, limit = 10) {
+  const data = await lastfmFetch<any>({
+    method: "album.search",
+    album,
+    limit,
+  });
+
+  const albums = data.results?.albummatches?.album || [];
+  console.log("searchAlbums - raw results:", albums);
+  return z.array(LastfmAlbumSchema).parse(albums);
+}
+
 export async function getAlbumInfo(artist: string, album: string) {
   console.log("Fetching album info for:", { artist, album });
 

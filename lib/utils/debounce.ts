@@ -1,4 +1,4 @@
-export function debounce<T extends (...args: any[]) => any>(func: T, wait: number): (...args: Parameters<T>) => void {
+/* export function debounce<T extends (...args: any[]) => any>(func: T, wait: number): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null
 
   return function executedFunction(...args: Parameters<T>) {
@@ -12,4 +12,13 @@ export function debounce<T extends (...args: any[]) => any>(func: T, wait: numbe
     }
     timeout = setTimeout(later, wait)
   }
+}
+ */
+
+export function debounce<T extends (...args: any[]) => any>(fn: T, wait = 300) {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  return (...args: Parameters<T>) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), wait);
+  };
 }

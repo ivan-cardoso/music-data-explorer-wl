@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 // Artist schemas
 export const LastfmArtistSchema = z.object({
@@ -13,10 +13,10 @@ export const LastfmArtistSchema = z.object({
       z.object({
         "#text": z.string(),
         size: z.string(),
-      }),
+      })
     )
     .optional(),
-})
+});
 
 export const ArtistInfoSchema = LastfmArtistSchema.extend({
   bio: z
@@ -55,12 +55,12 @@ export const ArtistInfoSchema = LastfmArtistSchema.extend({
           z.object({
             name: z.string(),
             url: z.string(),
-          }),
+          })
         )
         .optional(),
     })
     .optional(),
-})
+});
 
 // Track schemas
 export const LastfmTrackSchema = z.object({
@@ -91,7 +91,7 @@ export const LastfmTrackSchema = z.object({
       z.object({
         "#text": z.string(),
         size: z.string(),
-      }),
+      })
     )
     .optional(),
   "@attr": z
@@ -99,7 +99,7 @@ export const LastfmTrackSchema = z.object({
       rank: z.string().optional(),
     })
     .optional(),
-})
+});
 
 // Album schemas
 export const LastfmAlbumSchema = z.object({
@@ -119,7 +119,7 @@ export const LastfmAlbumSchema = z.object({
       z.object({
         "#text": z.string(),
         size: z.string(),
-      }),
+      })
     )
     .optional(),
   playcount: z.string().optional(),
@@ -129,7 +129,7 @@ export const LastfmAlbumSchema = z.object({
       rank: z.string().optional(),
     })
     .optional(),
-})
+});
 
 export const AlbumInfoSchema = LastfmAlbumSchema.extend({
   wiki: z
@@ -146,7 +146,7 @@ export const AlbumInfoSchema = LastfmAlbumSchema.extend({
           z.object({
             name: z.string(),
             url: z.string(),
-          }),
+          })
         )
         .optional(),
     })
@@ -156,57 +156,57 @@ export const AlbumInfoSchema = LastfmAlbumSchema.extend({
       track: z.array(LastfmTrackSchema),
     })
     .optional(),
-})
+});
 
 // Domain types
 export interface Artist {
-  name: string
-  playcount: number
-  listeners: number
-  mbid?: string
-  url?: string
-  image?: string
-  bio?: string
-  tags?: string[]
-  similar?: Artist[]
+  name: string;
+  playcount: number;
+  listeners: number;
+  mbid?: string;
+  url?: string;
+  image?: string;
+  bio?: string;
+  tags?: string[];
+  similar?: Artist[];
 }
 
 export interface Track {
-  name: string
-  duration: number
-  playcount: number
-  listeners?: number
-  url?: string
-  artist?: string
-  rank?: number
+  name: string;
+  duration: number;
+  playcount: number;
+  listeners?: number;
+  url?: string;
+  artist?: string;
+  rank?: number;
 }
 
 export interface Album {
-  name: string
-  artist: string
-  playcount: number
-  listeners?: number
-  url?: string
-  image?: string
-  releaseDate?: string
-  wiki?: string
-  tags?: string[]
-  tracks?: Track[]
+  name: string;
+  artist: string;
+  playcount: number;
+  listeners?: number;
+  url?: string;
+  image?: string;
+  releaseDate?: string;
+  wiki?: string;
+  tags?: string[];
+  tracks?: Track[];
 }
 
 export interface ArtistInsights {
-  averageDuration: number
-  longestTrack: Track
-  shortestTrack: Track
-  totalTracks: number
-  mostPopularTrack: Track
-  leastPopularTrack: Track
+  averageDuration: number;
+  longestTrack: Track;
+  shortestTrack: Track;
+  totalTracks: number;
+  mostPopularTrack: Track;
+  leastPopularTrack: Track;
 }
 
 export interface AlbumInsights {
-  averageDuration: number
-  longestTrack: Track
-  shortestTrack: Track
-  totalTracks: number
-  totalDuration: number
+  averageDuration: number;
+  longestTrack: Track;
+  shortestTrack: Track;
+  totalTracks: number;
+  totalDuration: number;
 }

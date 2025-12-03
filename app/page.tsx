@@ -1,19 +1,19 @@
 import { Navbar } from "@/components/layout/navbar";
-import { SearchBar } from "@/components/search/search-bar";
+import SearchBar from "@/components/search/search-bar";
 import { getTopArtists, getTopTracks } from "@/lib/lastfm/endpoints";
 import { transformArtist } from "@/lib/lastfm/transformers/artist";
 import { transformTrack } from "@/lib/lastfm/transformers/track";
 import { TrendingArtistsChart } from "@/components/charts/trending-artists-chart";
 import { TrendingTracksChart } from "@/components/charts/trending-tracks-chart";
 import TopTracksList from "@/components/album/track-list";
+import SearchClient from "@/components/search/search-bar-client";
 
 export default async function Home() {
-  
   const [artistsData, tracksData] = await Promise.all([
     getTopArtists(10),
     getTopTracks(10),
   ]);
-  
+
   const topArtists = artistsData.map(transformArtist);
   const topTracks = tracksData.map(transformTrack);
   let error = null;
@@ -28,7 +28,7 @@ export default async function Home() {
           </h1>
 
           <div className="w-full max-w-2xl mt-8">
-            <SearchBar />
+            <SearchClient />
           </div>
         </div>
 
