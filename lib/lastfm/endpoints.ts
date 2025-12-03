@@ -102,7 +102,6 @@ export async function searchAlbums(album: string, limit = 10) {
   });
 
   const albums = data.results?.albummatches?.album || [];
-  console.log("searchAlbums - raw results:", albums);
   return z.array(LastfmAlbumSchema).parse(albums);
 }
 

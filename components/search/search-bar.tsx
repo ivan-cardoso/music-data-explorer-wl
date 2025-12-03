@@ -39,7 +39,7 @@ export default function SearchBar({
   onSelect,
 }: SearchBarProps) {
   const [query, setQuery] = useState("");
-  const [type, setType] = useState<SearchType>("album");
+  const [type, setType] = useState<SearchType>("artist");
   const [results, setResults] = useState<(ArtistResult | AlbumResult)[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -131,8 +131,8 @@ export default function SearchBar({
 
   return (
     <div className="relative w-full max-w-2xl">
-      <div className="flex items-center rounded-md bg-card">
-        <div className="flex gap-2 items-center  border-r border-border pl-3">
+      <div className="flex items-center rounded-md bg-card border-2 border-foreground/20 shadow-sm">
+        <div className="flex gap-2 items-center  border-r pl-3">
           <Search className="h-4 w-4 text-muted-foreground" />
           <select
             aria-label="Search type"
@@ -140,8 +140,8 @@ export default function SearchBar({
             onChange={(e) => setType(e.target.value as SearchType)}
             className=" text-foreground px-3 py-2 bg-card"
           >
-            <option value="album">Album</option>
             <option value="artist">Artist</option>
+            <option value="album">Album</option>
           </select>
         </div>
 
@@ -155,7 +155,7 @@ export default function SearchBar({
             placeholder={placeholder}
             aria-autocomplete="list"
             aria-expanded={open}
-            className="w-full text-foreground px-4 py-2"
+            className="w-full h-fit text-foreground px-4 py-2 rounded-none border-0"
           />
 
           {open && (results.length > 0 || loading) && (
