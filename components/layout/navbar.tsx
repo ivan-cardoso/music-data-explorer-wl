@@ -1,10 +1,10 @@
-'use client'
-import Link from "next/link"
-import { Search, Bell, User } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import SearchClient from "../search/search-bar-client"
-import { usePathname } from 'next/navigation';
+"use client";
+import Link from "next/link";
+import { Search, Bell, User } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import SearchClient from "../search/search-bar-client";
+import { usePathname } from "next/navigation";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -19,32 +19,15 @@ export function Navbar() {
               <div className="h-6 w-1 rounded-full bg-primary-foreground" />
             </div>
           </div>
-          <span className="text-xl font-semibold text-foreground">Music Data Explorer</span>
+          <span className="text-xl font-semibold text-foreground">
+            Music Data Explorer
+          </span>
         </Link>
 
         <div className="hidden flex-1 max-w-lg mx-8 md:block md:ml-10">
-          <div className="relative">
-            
-            {pathname !== '/' && <SearchClient/> }
-           
-            {/* <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input type="search" placeholder="Search" className="w-full pl-10 bg-input border-border" /> */}
-          </div>
+          <div className="relative">{pathname !== "/" && <SearchClient />}</div>
         </div>
-
-        {/* <div className="flex items-center gap-4">
-          <button className="text-muted-foreground hover:text-foreground transition-colors">
-            <Bell className="h-5 w-5" />
-          </button>
-          <button className="text-muted-foreground hover:text-foreground transition-colors">
-            <User className="h-5 w-5" />
-          </button>
-          <Avatar className="h-10 w-10">
-            <AvatarImage src="/diverse-user-avatars.png" />
-            <AvatarFallback>U</AvatarFallback>
-          </Avatar>
-        </div> */}
       </div>
     </nav>
-  )
+  );
 }

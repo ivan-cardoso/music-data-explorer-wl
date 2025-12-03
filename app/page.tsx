@@ -19,8 +19,9 @@ export default async function Home() {
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center text-center py-12 mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-primary/60 bg-clip-text text-transparent leading-tight text-balance">
-            Uncover insights about artists, albums and songs.
+          <h1 className="text-4xl md:text-7xl font-bold mb-6 text-foreground leading-tight text-balance">
+            Discover insights about{" "}
+            <span className="text-primary">artists, albums and songs.</span>
           </h1>
 
           <div className="w-full max-w-2xl mt-8">
@@ -37,7 +38,7 @@ export default async function Home() {
           </div>
         ) : (
           <section className="mt-16">
-            <h2 className="text-center text-5xl font-bold">
+            <h2 className="text-center text-3xl md:text-5xl font-bold">
               Most loved this week
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
 import { formatNumber } from "@/lib/utils/formatter";
+import Image from "next/image";
 
 type SearchType = "artist" | "album";
 
@@ -39,7 +40,7 @@ export default function SearchBar({
   onSelect,
 }: SearchBarProps) {
   const [query, setQuery] = useState("");
-  const [type, setType] = useState<SearchType>("artist");
+  const [type, setType] = useState<SearchType>("album");
   const [results, setResults] = useState<(ArtistResult | AlbumResult)[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -140,8 +141,8 @@ export default function SearchBar({
             onChange={(e) => setType(e.target.value as SearchType)}
             className=" text-foreground px-3 py-2 bg-card"
           >
-            <option value="artist">Artist</option>
             <option value="album">Album</option>
+            <option value="artist">Artist</option>
           </select>
         </div>
 
@@ -194,20 +195,24 @@ export default function SearchBar({
                     >
                       <div className="w-10 h-10 rounded overflow-hidden bg-muted flex-shrink-0">
                         {r.image && (r as any).image[0]?.["#text"] ? (
-                          <img
+                          <Image
                             width={25}
                             height={25}
                             src={(r as any).image[0]["#text"]}
                             alt={(r as any).name}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              e.currentTarget.src = "/music-placeholder.webp"; // fallback
+                              e.currentTarget.src = "/music-placeholder.webp";
                             }}
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center text-sm text-muted-foreground">
-                            No
-                          </div>
+                          <Image
+                            width={25}
+                            height={25}
+                            src={"/music-placeholder.webp"}
+                            alt={(r as any).name}
+                            className="w-full h-full object-cover"
+                          />
                         )}
                       </div>
 

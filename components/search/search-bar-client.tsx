@@ -13,7 +13,7 @@ export default function SearchClient() {
           router.push(
             `/artist/${encodeURIComponent(item.name)}`
           );
-        } else {
+        } else if (type === "album" && "artist" in item) {
           router.push(
             `/album/${encodeURIComponent(item.artist)}/${encodeURIComponent(item.name)}`
           );
