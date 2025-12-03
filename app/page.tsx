@@ -36,7 +36,7 @@ export default async function Home() {
           <div className="text-center py-12">
             <p className="text-destructive">Error: {error}</p>
             <p className="text-muted-foreground mt-2">
-              Please check your Last.fm API configuration
+              Error connecting with Last.fm API
             </p>
           </div>
         ) : (
