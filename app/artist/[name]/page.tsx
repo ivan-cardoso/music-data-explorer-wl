@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/navbar";
 import {
   getArtistInfo,
   getArtistTopTracks,
@@ -10,13 +9,15 @@ import { transformArtist } from "@/lib/lastfm/transformers/artist";
 import { transformTrack } from "@/lib/lastfm/transformers/track";
 import { transformAlbum } from "@/lib/lastfm/transformers/album";
 import { calculateArtistInsights } from "@/lib/lastfm/insights/artistInsights";
+
 import { ArtistHeader } from "@/components/artist/artist-header";
 import { AlbumGrid } from "@/components/artist/album-grid";
 import { SimilarArtists } from "@/components/artist/similar-artists";
 import TopTracksList from "@/components/album/track-list";
-import NotFound from "./not-found";
 import { ArtistBio } from "@/components/artist/artist-bio";
 import { ArtistInsights } from "@/components/artist/artist-insights";
+
+import NotFound from "./not-found";
 
 export default async function ArtistPage({
   params,

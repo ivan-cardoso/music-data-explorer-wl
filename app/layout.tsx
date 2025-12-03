@@ -1,15 +1,16 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import { Navbar } from "@/components/layout/navbar"
+import type React from "react";
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
 
-const geist = Geist({ subsets: ["latin"] })
+const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Musify - Music Data Explorer",
-  description: "Uncover insights about artists, albums and songs with data-driven visualizations powered by Last.fm",
+  description:
+    "Insights about artists and albums with data-driven visualizations powered by Last.fm",
   icons: {
     icon: [
       {
@@ -27,12 +28,12 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -42,5 +43,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
