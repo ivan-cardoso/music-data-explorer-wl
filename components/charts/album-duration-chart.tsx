@@ -36,55 +36,57 @@ export function TrackDurationLineChart({
   }
 
   return (
-    <div className="grid grid-cols-3 h-96  rounded-lg p-4 shadow-sm">
-      <div className="col-span-3 lg:col-span-3 bg-card p-5 rounded-lg border border-border">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              // stroke="hsl(var(--border))"
-              opacity={0.4}
-            />
-            <XAxis
-              dataKey="name"
-              // stroke="hsl(var(--muted-foreground))"
-              fontSize={12}
-              tickLine={false}
-              axisLine={false}
-            />
-            <YAxis
-              // stroke="hsl(var(--muted-foreground))"
-              fontSize={12}
-              tickFormatter={(v) => formatDuration(v)}
-              tickLine={false}
-              axisLine={false}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "oklch(0.145 0 0)",
-                border: "1px solid oklch(0.145 0 0)",
-                borderRadius: "0.5rem",
-                color: "white",
-              }}
-              formatter={(value: number) => [formatDuration(value), "Duration"]}
-              labelFormatter={(label, payload) => {
-                if (payload && payload.length > 0) {
-                  return payload[0].payload.trackName;
-                }
-                return label;
-              }}
-            />
+    <div className="mt-12">
+      <h2 className="text-2xl font-bold mb-6 text-foreground">
+        Track Duration Distribution
+      </h2>
 
-            <Line
-              type="monotone"
-              dataKey="duration"
-              stroke="#ed5724"
-              strokeWidth={3}
-              // dot={{ r: 4, strokeWidth: 2, stroke: "hsl(var(--chart-2))" }}
-              activeDot={{ r: 6 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <div className="grid grid-cols-3 h-96  rounded-lg p-4 shadow-sm">
+        <div className="col-span-3 lg:col-span-3 bg-card p-5 rounded-lg border border-border">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={data}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.4} />
+              <XAxis
+                dataKey="name"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+              />
+              <YAxis
+                fontSize={12}
+                tickFormatter={(v) => formatDuration(v)}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "oklch(0.145 0 0)",
+                  border: "1px solid oklch(0.145 0 0)",
+                  borderRadius: "0.5rem",
+                  color: "white",
+                }}
+                formatter={(value: number) => [
+                  formatDuration(value),
+                  "Duration",
+                ]}
+                labelFormatter={(label, payload) => {
+                  if (payload && payload.length > 0) {
+                    return payload[0].payload.trackName;
+                  }
+                  return label;
+                }}
+              />
+
+              <Line
+                type="monotone"
+                dataKey="duration"
+                stroke="#ed5724"
+                strokeWidth={3}
+                activeDot={{ r: 6 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </div>
   );
