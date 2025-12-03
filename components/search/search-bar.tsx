@@ -201,7 +201,7 @@ export default function SearchBar({
                             alt={(r as any).name}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              e.currentTarget.src = "/placeholder.svg"; // fallback
+                              e.currentTarget.src = "/music-placeholder.webp"; // fallback
                             }}
                           />
                         ) : (

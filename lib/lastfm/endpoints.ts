@@ -106,8 +106,6 @@ export async function searchAlbums(album: string, limit = 10) {
 }
 
 export async function getAlbumInfo(artist: string, album: string) {
-  console.log("Fetching album info for:", { artist, album });
-
   const data = await lastfmFetch<any>({
     method: "album.getinfo",
     artist,

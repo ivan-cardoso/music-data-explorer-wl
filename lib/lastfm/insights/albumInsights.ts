@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 
 export function calculateAlbumInsights(tracks: Track[]): AlbumInsights | null {
+  if (!tracks[0]) return null 
   if (tracks.length === 0) return null
 
   const tracksWithDuration = tracks.filter((t) => t.duration > 0)

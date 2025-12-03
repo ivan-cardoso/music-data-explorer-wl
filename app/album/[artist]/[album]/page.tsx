@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrackDurationLineChart } from "@/components/charts/album-duration-chart";
 import TopTracksList from "@/components/album/track-list";
 import Link from "next/link";
+import { InfoIcon } from "lucide-react";
 
 export default async function AlbumPage({
   params,
@@ -27,23 +28,26 @@ export default async function AlbumPage({
   const albumName = decodeURIComponent(album);
 
   const albumData = await getAlbumInfo(artistName, albumName);
-  
   const albumFormat = transformAlbum(albumData);
+
   const insights = albumFormat.tracks
     ? calculateAlbumInsights(albumFormat.tracks)
     : null;
 
-  const albumOutliers = calculateAlbumOutliers(albumData);
+  const albumOutliers =
+    albumFormat?.tracks && albumFormat.tracks[0]
+      ? calculateAlbumOutliers(albumData)
+      : null;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
-        
         <div className="flex flex-col md:flex-row gap-8 items-start">
           <img
             src={
               albumFormat.image ||
-              "/placeholder.svg?height=300&width=300&query=album+cover"
+              "/music-placeholder.webp?height=300&width=300&query=album+cover"
             }
             alt={albumFormat.name}
             className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
@@ -187,7 +191,7 @@ export default async function AlbumPage({
           </>
         )}
 
-        {albumOutliers && (
+        {albumOutliers ? (
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-foreground">
               Insights
@@ -215,7 +219,6 @@ export default async function AlbumPage({
                         )}
 
                         <p className="text-base leading-snug text-foreground font-medium">
-                          
                           {insight}
                         </p>
                       </div>
@@ -223,6 +226,25 @@ export default async function AlbumPage({
                   </Card>
                 );
               })}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div className="mt-12">
+              <Card className="bg-card border-border lg:h-fit w-fit ">
+                {/* <CardHeader>
+                    <CardTitle className="text-foreground">
+                      Average Track Duration
+                    </CardTitle>
+                  </CardHeader> */}
+                <CardContent className="py-w-fit flex gap-3 items-center">
+                  <InfoIcon className="w-7 h-7" />
+                  <p className="text-lg font-medium text-foreground">
+                    The content of this album does not provide sufficient data
+                    to generate insights.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         )}

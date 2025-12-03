@@ -15,7 +15,7 @@ export function AlbumGrid({ albums }: AlbumGridProps) {
           <Card className="p-0 group overflow-hidden border-border bg-card hover:bg-muted/50 transition-colors cursor-pointer">
             <div className="aspect-square overflow-hidden">
               <img
-                src={album.image || "/placeholder.svg?height=300&width=300&query=album+cover"}
+                src={album.image || "/music-placeholder.webp?height=300&width=300&query=album+cover"}
                 alt={album.name}
                 className="w-full h-full object-cover group-hover:scale-[102%] transition-transform duration-300"
               />
