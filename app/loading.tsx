@@ -1,11 +1,13 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-4 py-12 flex flex-col items-center justify-center">
-        <h2 className="text-xl font-bold mb-6 text-foreground">
-          Getting data...
-        </h2>
-      </main>
+    <div className="h-screen bg-background">
+      <div className="animate-pulse flex items-center justify-center gap-6 h-3/4 w-full">
+        <div className="flex-1 space-y-4 w-full">
+          <div className="h-24 w-64 bg-muted rounded" />
+          <div className="h-8 w-40 bg-muted rounded" />
+          <div className="h-8 w-40 bg-muted rounded" />
+        </div>
+      </div>
     </div>
   );
 }
