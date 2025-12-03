@@ -9,20 +9,14 @@ import { transformArtist } from "@/lib/lastfm/transformers/artist";
 import { transformTrack } from "@/lib/lastfm/transformers/track";
 import { transformAlbum } from "@/lib/lastfm/transformers/album";
 import { calculateArtistInsights } from "@/lib/lastfm/insights/artistInsights";
-import {
-  formatNumber,
-  formatDuration,
-  stripHtmlTags,
-} from "@/lib/utils/formatter";
+import { formatNumber, stripHtmlTags } from "@/lib/utils/formatter";
 import { ArtistHeader } from "@/components/artist/artist-header";
 import { TrackDurationChart } from "@/components/charts/track-duration-chart";
 import { TrackPopularityChart } from "@/components/charts/track-popularity-chart";
 import { AlbumGrid } from "@/components/artist/album-grid";
 import { SimilarArtists } from "@/components/artist/similar-artists";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Track } from "@/lib/types/lastfm";
 import TopTracksList from "@/components/album/track-list";
-import { AlbumTrackList } from "@/components/album/album-track-list";
 
 export default async function ArtistPage({
   params,
@@ -73,7 +67,6 @@ export default async function ArtistPage({
                   plays
                 </div>
               </CardContent>
-              
             </Card>
           </div>
 
@@ -140,13 +133,12 @@ export default async function ArtistPage({
       </div>
     );
   } catch (error) {
-    console.error("Artist page error:", error);
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
         <main className="container mx-auto px-4 py-12">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-destructive mb-4">
+            <h1 className="text-3xl font-bold text-primary mb-4">
               Artist Not Found
             </h1>
             <p className="text-muted-foreground">
