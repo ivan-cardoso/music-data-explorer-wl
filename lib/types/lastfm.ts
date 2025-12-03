@@ -210,3 +210,34 @@ export interface AlbumInsights {
   totalTracks: number;
   totalDuration: number;
 }
+
+
+
+export const LastfmAlbumTrackSchema = z.object({
+  name: z.string(),
+  duration: z.number().nullable().default(0),
+  listeners: z.string().optional().transform(Number).optional(),
+});
+
+export const LastfmAlbumInfoSchema = z.object({
+  name: z.string(),
+  artist: z.string(),
+  playcount: z.string().transform(Number),
+  listeners: z.string().transform(Number),
+  tags: z.object({
+    tag: z.array(z.object({ name: z.string() })).optional(),
+  }).optional(),
+
+  tracks: z.object({
+    track: z.array(LastfmAlbumTrackSchema),
+  }),
+
+  image: z.array(
+    z.object({
+      size: z.string(),
+      ["#text"]: z.string(),
+    })
+  ).optional()
+});
+
+export type AlbumInfo = z.infer<typeof LastfmAlbumInfoSchema>;

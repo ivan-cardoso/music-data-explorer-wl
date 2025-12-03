@@ -37,7 +37,7 @@ export default async function ArtistPage({
       await Promise.all([
         getArtistInfo(artistName),
         getArtistTopTracks(artistName, 10),
-        getArtistTopAlbums(artistName, 10),
+        getArtistTopAlbums(artistName, 12),
         getSimilarArtists(artistName, 6),
       ]);
 

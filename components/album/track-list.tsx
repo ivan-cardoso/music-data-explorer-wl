@@ -20,7 +20,7 @@ export default function TopTracksList({
         const percentage = (track.listeners! / maxPlaycount!) * 100;
         return (
           <li
-            key={track.name}
+            key={i}
             className="
               grid 
               sm:grid-cols-2 
