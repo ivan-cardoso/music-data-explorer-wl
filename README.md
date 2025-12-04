@@ -28,7 +28,7 @@ Navigate to [https://musify-explorer.vercel.app/](https://musify-explorer.vercel
 
 The project follows clean architecture principles:
 
-\`\`\`
+```
 src/
 ├── app/                    # Next.js App Router pages
 ├── components/             # React components
@@ -46,7 +46,7 @@ src/
 │   │   └── insights/      # Data analysis
 │   ├── types/             # TypeScript types
 │   └── utils/             # Utility functions
-\`\`\`
+```
 
 ## Getting Started
 
@@ -61,18 +61,18 @@ src/
 
 2. **Install dependencies**
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 3. **Configure environment variables**
 
 Create a `.env.local` file in the root directory:
 
-\`\`\`env
+```env
 LASTFM_API_KEY=your_api_key_here
 LASTFM_API_BASE=https://ws.audioscrobbler.com/2.0
-\`\`\`
+```
 
 To get your Last.fm API key:
 - Visit https://www.last.fm/api/account/create
@@ -81,9 +81,9 @@ To get your Last.fm API key:
 
 4. **Run the development server**
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 5. **Open your browser**
 
