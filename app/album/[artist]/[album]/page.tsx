@@ -60,7 +60,7 @@ export default async function AlbumPage({
               </>
             )}
 
-          {albumOutliers && albumOutliers.insights ? (
+          {albumOutliers && albumOutliers.insights.length ? (
             <>
               <AlbumOutliers outliers={albumOutliers as any} />
             </>

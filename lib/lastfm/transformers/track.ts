@@ -3,9 +3,6 @@ import type { z } from "zod"
 import type { LastfmTrackSchema } from "@/lib/types/lastfm"
 
 export function transformTrack(data: z.infer<typeof LastfmTrackSchema>): Track {
-  if ("artist" in data && data.artist) {
-    const artistName = data.artist
-  }
   return {
     name: data.name,
     duration: Number.parseInt(data.duration || "0"),
@@ -13,6 +10,6 @@ export function transformTrack(data: z.infer<typeof LastfmTrackSchema>): Track {
     listeners: data.listeners ? Number.parseInt(data.listeners) : undefined,
     url: data.url,
     rank: data["@attr"]?.rank ? Number.parseInt(data["@attr"].rank) : undefined,
-    artist: data.artist.name ?  data.artist.name : undefined,
+    artist: typeof data.artist === 'object' && data.artist?.name ? data.artist.name : 'undefined',
   }
 }
