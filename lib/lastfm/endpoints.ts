@@ -52,7 +52,6 @@ export async function searchArtists(artist: string, limit = 10) {
 }
 
 export async function getArtistInfo(artist: string) {
-  console.log("Fetching artist info for:", artist);
   const data = await lastfmFetch<any>({
     method: "artist.getinfo",
     artist,
