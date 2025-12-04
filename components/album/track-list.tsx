@@ -7,10 +7,12 @@ export default function TopTracksList({
   tracks,
   image,
   showArtistName,
+  variant = "primary",
 }: {
   tracks: Track[];
   image?: string;
   showArtistName?: boolean;
+  variant?: "primary" | "secondary";
 }) {
   const maxPlaycount =
     tracks[0].listeners && Math.max(...tracks.map((a) => a.listeners!));
@@ -36,7 +38,7 @@ export default function TopTracksList({
             "
           >
             <div className="flex gap-3 items-center">
-              <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
+              <div className={`h-10 w-10 rounded-full flex items-center justify-center ${variant === 'secondary' ? 'bg-ring' : 'bg-primary'}`}>
                 <span className="text-lg font-bold text-foreground text-center">
                   {i + 1}
                 </span>
@@ -57,7 +59,7 @@ export default function TopTracksList({
                 {showArtistName && (
                   <Link
                     href={`/artist/${encodeURIComponent(track.artist!)}`}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                    className={`text-sm font-medium text-muted-foreground  transition-colors ${variant === 'secondary' ? 'hover:text-ring' : 'hover:text-primary'}`}
                   >
                     {track.artist}
                   </Link>
@@ -69,7 +71,7 @@ export default function TopTracksList({
                 {track.listeners ? (
                   <>
                     <div
-                      className="absolute inset-y-0 left-0 bg-primary/70 rounded-full transition-all duration-500"
+                      className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${variant === 'secondary' ? 'bg-ring/70' : 'bg-primary/70'}`}
                       style={{ width: `${percentage}%` }}
                     />
                     <span className="absolute inset-y-0 left-0 text-sm font-medium text-white whitespace-nowrap pl-4 py-1.5">
@@ -80,7 +82,7 @@ export default function TopTracksList({
                   track.duration > 0 && (
                     <>
                       <div
-                        className="absolute inset-y-0 left-0 bg-primary/70 rounded-full transition-all duration-500"
+                        className={`absolute inset-y-0 left-0 rounded-full transition-all duration-500 ${variant === 'secondary' ? 'bg-ring/70' : 'bg-primary/70'}`}
                         style={{ width: `${percentage}%` }}
                       />
                       <span className="absolute inset-y-0 left-0 text-sm font-medium text-white whitespace-nowrap pl-4 py-1.5">

@@ -7,7 +7,7 @@ export default function NotFound() {
             Album Not Found
           </h1>
           <p className="text-muted-foreground">
-            The artist you're looking for doesn’t exist.
+            We're sorry, but we couldn't find the album you're looking for.
           </p>
         </div>
       </main>

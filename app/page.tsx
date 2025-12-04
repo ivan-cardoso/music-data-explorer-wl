@@ -55,7 +55,7 @@ export default async function Home() {
                 </h2>
                 <section className="w-full grid grid-cols-1 lg:grid-cols-3">
                   <div className="col-span-3">
-                    <TopTracksList tracks={topTracks} showArtistName />
+                    <TopTracksList tracks={topTracks} showArtistName variant="secondary"/>
                   </div>
                 </section>
               </div>
