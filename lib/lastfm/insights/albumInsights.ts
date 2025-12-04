@@ -1,5 +1,5 @@
 import type { Track, AlbumInsights, AlbumInfo } from "@/lib/types/lastfm";
-import { rareTags } from "@/lib/utils";
+import { rareTags } from "@/lib/constants";
 import {
   Gauge,
   Hourglass,
