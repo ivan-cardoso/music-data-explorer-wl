@@ -54,7 +54,7 @@ src/
 ### Prerequisites
 
 - Node.js 18+ installed
-- Last.fm API key (free)
+- Last.fm API key
 
 ### Installation
 
@@ -114,11 +114,7 @@ The application uses Next.js caching with `revalidate: 3600` (1 hour) to optimiz
 
 ## Deployment
 
-Deploy to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-Make sure to add your `LASTFM_API_KEY` in the Vercel environment variables.
+Deployed using Vercel
 
 ## License
 
