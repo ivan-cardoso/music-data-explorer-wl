@@ -2,7 +2,7 @@
 
 Uncover insights about artists, albums and songs with data-driven visualizations powered by Last.fm API.
 
-![Musify Screenshot](https://via.placeholder.com/1200x600/1a1a2e/1DB954?text=Musify+Music+Data+Explorer)
+Navigate to [https://musify-explorer.vercel.app/](https://musify-explorer.vercel.app/)
 
 ## Features
 
@@ -11,7 +11,6 @@ Uncover insights about artists, albums and songs with data-driven visualizations
 - **Artist Insights** - Deep dive into artist statistics, top tracks, albums, and similar artists
 - **Album Analytics** - Explore album details with track duration analysis
 - **Data Visualizations** - Interactive charts using Recharts
-- **Dark Theme** - Spotify-inspired design with green accents
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 
 ## Technologies
@@ -115,12 +114,3 @@ The application uses Next.js caching with `revalidate: 3600` (1 hour) to optimiz
 ## Deployment
 
 Deployed using Vercel
-
-## License
-
-MIT
-
-## Credits
-
-- Music data provided by [Last.fm](https://www.last.fm)
-- Built with [Next.js](https://nextjs.org) and [Vercel](https://vercel.com)
