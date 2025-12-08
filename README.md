@@ -2,7 +2,9 @@
 
 Uncover insights about artists, albums and songs with data-driven visualizations powered by Last.fm API.
 
-Navigate to [https://musify-explorer.vercel.app/](https://musify-explorer.vercel.app/)
+Live Demo: [https://musify-explorer.vercel.app/](https://musify-explorer.vercel.app/)
+
+*This project was created as part of the **Wollen Labs** hiring challenge.* 
 
 ## Features
 
@@ -12,6 +14,24 @@ Navigate to [https://musify-explorer.vercel.app/](https://musify-explorer.vercel
 - **Album Analytics** - Explore album details with track duration analysis
 - **Data Visualizations** - Interactive charts using Recharts
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
+
+## Testing the App
+
+### Home Page
+- View trending artists and tracks
+- Use the search bar to find artists
+- Click on artist suggestions to navigate
+
+### Artist Page
+- View artist biography and statistics
+- Explore top tracks with duration and popularity charts
+- Browse top albums
+- Discover similar artists
+
+### Album Page
+- View album details and tracklist
+- Analyze track duration distribution
+- See album insights (longest/shortest tracks, total duration)
 
 ## Technologies
 
@@ -31,24 +51,26 @@ The project follows clean architecture principles:
 ```
 src/
 ├── app/                    # Next.js App Router pages
+├── api/                    # API Routes
 ├── components/             # React components
-│   ├── layout/            # Navigation, header
-│   ├── search/            # Search bar with autosuggest
-│   ├── charts/            # Chart components
-│   ├── artist/            # Artist-specific components
-│   ├── album/             # Album-specific components
-│   └── ui/                # shadcn/ui components
+│   ├── album/              # Album-specific components
+│   ├── artist/             # Artist-specific components
+│   ├── charts/             # Chart components
+│   ├── layout/             # Navigation, header
+│   ├── search/             # Search bar with autosuggest
+│   ├── skeletons/          # Loading skeletons
+│   └── ui/                 # shadcn/ui components
 ├── lib/
-│   ├── lastfm/            # Last.fm API integration
-│   │   ├── client.ts      # API client
-│   │   ├── endpoints.ts   # API endpoints
-│   │   ├── transformers/  # Data transformers
-│   │   └── insights/      # Data analysis
-│   ├── types/             # TypeScript types
-│   └── utils/             # Utility functions
+│   ├── lastfm/             # Last.fm API integration
+│   │   └── insights/       # Data analysis
+│   │   ├── transformers/   # Data transformers
+│   │   ├── client.ts       # API client
+│   │   ├── endpoints.ts    # API endpoints
+│   ├── types/              # TypeScript types
+│   └── utils/              # Utility functions
 ```
 
-## Getting Started
+## Running the project
 
 ### Prerequisites
 
@@ -89,28 +111,8 @@ npm run dev
 
 Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Testing the App
 
-### Home Page
-- View trending artists and tracks
-- Use the search bar to find artists
-- Click on artist suggestions to navigate
-
-### Artist Page
-- View artist biography and statistics
-- Explore top tracks with duration and popularity charts
-- Browse top albums
-- Discover similar artists
-
-### Album Page
-- View album details and tracklist
-- Analyze track duration distribution
-- See album insights (longest/shortest tracks, total duration)
 
 ## API Caching
 
 The application uses Next.js caching with `revalidate: 3600` (1 hour) to optimize API calls and improve performance.
-
-## Deployment
-
-Deployed using Vercel
