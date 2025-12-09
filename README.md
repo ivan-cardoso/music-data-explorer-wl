@@ -21,6 +21,7 @@ Live Demo: [https://musify-explorer.vercel.app/](https://musify-explorer.vercel.
 - View trending artists and tracks
 - Use the search bar to find artists
 - Click on artist suggestions to navigate
+- Discover random popular songs
 
 ### Artist Page
 - View artist biography and statistics

@@ -112,7 +112,6 @@ export async function getAlbumInfo(artist: string, album: string) {
     album,
   });
 
-  console.log("Album data received:", data.album?.name);
   return data.album;
 }
 
