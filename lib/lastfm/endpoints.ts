@@ -116,6 +116,7 @@ export async function getAlbumInfo(artist: string, album: string) {
   return data.album;
 }
 
+
 // Track endpoints
 export async function getTrackInfo(artist: string, track: string) {
   const data = await lastfmFetch<any>({
@@ -125,4 +126,23 @@ export async function getTrackInfo(artist: string, track: string) {
   });
 
   return data.track;
+}
+
+export async function getTopTracksGlobal() {
+  const data = await lastfmFetch<any>({
+    method: "chart.gettoptracks",
+    limit: "50",
+  });
+
+  return data.tracks.track;
+}
+
+export async function getTopTracksByCountry(country: string) {
+  const data = await lastfmFetch<any>({
+    method: "geo.gettoptracks",
+    country,
+    limit: "50",
+  });
+
+  return data.tracks.track;
 }

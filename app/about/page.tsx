@@ -63,7 +63,7 @@ export default function AboutPage() {
             I hope we can work together.
           </p>
           <p className="text-muted-foreground">
-            Thank you for reviewing this project - I truly enjoyed building it.
+            Thank you for reviewing this project. I truly enjoyed building it.
           </p>
         </CardContent>
       </Card>

@@ -4,6 +4,7 @@ import { transformTrack } from "@/lib/lastfm/transformers/track";
 import { TrendingArtistsChart } from "@/components/charts/trending-artists-chart";
 import TopTracksList from "@/components/album/track-list";
 import SearchClient from "@/components/search/search-bar-client";
+import RandomTrackCard from "@/components/randomTrack/random-track-card";
 
 export default async function Home() {
   const [artistsData, tracksData] = await Promise.all([
@@ -55,11 +56,19 @@ export default async function Home() {
                 </h2>
                 <section className="w-full grid grid-cols-1 lg:grid-cols-3">
                   <div className="col-span-3">
-                    <TopTracksList tracks={topTracks} showArtistName variant="secondary"/>
+                    <TopTracksList
+                      tracks={topTracks}
+                      showArtistName
+                      variant="secondary"
+                    />
                   </div>
                 </section>
               </div>
             </div>
+
+            <section className="mt-20">
+              <RandomTrackCard />
+            </section>
           </section>
         )}
       </main>
